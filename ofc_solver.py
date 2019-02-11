@@ -13,6 +13,7 @@
 # *************************************************************************** #
 
 import sys
+from players import print_all_boards
 
 CONST_VERSION = 1.0
 
@@ -25,9 +26,19 @@ num_players = 0
 if len(sys.argv) == 2:
 	num_players = sys.argv[1]
 else:
-	number = input('\x1b[0;32;40m' + 'Enter the number of players (2-4): ' + 
-		'\x1b[0m')
-	try:
-		num_players = int(number)
-	except ValueError:
-		print(str(number) + ' is not a valid integer')
+	valid = False
+	while(not valid):
+		number = input('\x1b[0;32;40m' + 'Enter the number of players (2-4): ' + 
+			'\x1b[0m')
+		try:
+			num_players = int(number)
+		except ValueError:
+			print(str(number) + ' is not a valid integer')
+		else:
+			if num_players >= 2 and num_players <= 4:
+				valid = 1
+
+input('\x1b[0;32;40m' + 
+	'Would you like to (1) random deal or (2) input cards? ' + '\x1b[0m')
+
+print_all_boards(num_players)
