@@ -38,7 +38,7 @@ print_all_boards(num_players)
 # Request game mode from user
 game_mode = input_mode()
 
-# Options
+# Game Loop
 while(not game_over):
 	opt = input_options()
 	if opt.upper() == 'Q':
